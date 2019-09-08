@@ -31,4 +31,18 @@ RSpec.describe Article, type: :model do
       # expect(article.errors.messages[:title]).to include("can't be blank")
     end
   end
+
+  describe '.recent' do
+    it 'should list most recent article first' do
+      older_article = create :article
+      newer_article = create :article
+      expect(described_class.recent).to eq(
+        [newer_article, older_article]
+      )
+      older_article.update_column :created_at, Time.now
+      expect(described_class.recent).to eq(
+        [older_article, newer_article]
+      )
+    end
+  end
 end
