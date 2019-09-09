@@ -19,6 +19,7 @@ gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
 gem 'factory_bot_rails'
 gem 'fast_jsonapi'
 gem 'kaminari'
+gem "octokit", "~> 4.0"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
