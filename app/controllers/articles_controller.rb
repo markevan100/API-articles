@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   def index
-    render json: serializer.new(Article.recent)
+    articles = Article.recent.page(params[:page]).per(params[:per_page])
+    render json: serializer.new(articles)
   end
 
 
